@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<header>
+
+    <div class="headWord">
+
+        In a world obsessed with the "big picture,"
+        we focus on the fundamental.
+
+    </div>
+
+    <img src="/images/rect13364.jpg"
+         alt=""
+         class="creationPic">
+
+</header>
+
+<br>
+
+<h1 class="postHead">Latest Post</h1>
+
+{% set posts = get_section(path="posts/_index.md") %}
+
+<section class="articleText">
+
+    {% for page in posts.pages %}
+
+    <section class="articleTitle">
+
+        <h2>
+            <a href="{{ page.permalink }}">
+                {{ page.title }}
+            </a>
+        </h2>
+
+        <div class="writerDate">
+            {{ page.date }}
+        </div>
+
+        <p class="previewText">
+            {{ page.summary | safe }}
+        </p>
+
+        <a class="readMore"
+           href="{{ page.permalink }}">
+           Read more...
+        </a>
+
+    </section>
+
+    {% endfor %}
+
+</section>
+
+{% endblock content %}

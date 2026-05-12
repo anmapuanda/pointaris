@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+        Pointaris
+        {% endblock title %}
+    </title>
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet"
+          href="/css/style.css">
+
+    <link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+
+</head>
+    <meta name="description"
+      content="{% if page and page.description %}{{ page.description }}{% else %}Find fundamental to complex information related to everything with points. Points that lead you to a mathematical world for physical implementation.{% endif %}">
+
+    <script defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js">
+    </script>
+
+    <script defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js">
+    </script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        renderMathInElement(document.body, {
+
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+
+        });
+
+    });
+    </script>
+<body>
+
+    {% include "navbar.html" %}
+
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    {% include "footer.html" %}
+
+</body>
+</html>

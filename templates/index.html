@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<header>
+
+    <div class="headWord">
+
+        In a world obsessed with the "big picture," we focus on the fundamental. We believe that the point is everything. It is the origin of every line, the center of every circle, and the core of every argument. From the singular coordinates that define our universe to the sharpest insights that change our minds, we prove that greatness isn't found in the masses—it’s found in the precision of the point.
+
+    </div>
+
+    <img src="/images/rect13364.jpg"
+         alt=""
+         class="creationPic">
+
+</header>
+
+<br>
+
+<h1 class="postHead">Latest Video</h1>
+
+<section class="postVideo">
+
+    <div class="videoPost">
+
+        <h2>Video Title 1</h2>
+
+        <a href="https://www.youtube.com/embed/DucUHc6rjxc">
+            Watch videos on YouTube
+        </a>
+
+    </div>
+
+    <div class="videoPost">
+
+        <h2>Video Title 2</h2>
+
+        <a href="https://www.youtube.com/embed/DucUHc6rjxc">
+            Watch videos on YouTube
+        </a>
+
+    </div>
+
+</section>
+
+<img src="/images/rect13364.jpg"
+         alt=""
+         class="creationPic">
+
+<h1 class="postHead">Latest Post</h1>
+
+<section class="articleText">
+
+    {% set posts = get_section(path="posts/_index.md") %}
+
+    {% for page in posts.pages %}
+
+    <section class="articleTitle">
+
+        <h2>
+                {{ page.title }}
+        </h2>
+
+        <div class="writerDate">
+            by Priangga Ardhana Rambana at {{ page.date }}
+        </div>
+
+        <p class="previewText">
+            {{ page.summary | striptags }}
+        </p>
+
+        <a class="readMore"
+           href="{{ page.permalink }}">
+
+           Read more...
+
+        </a>
+
+    </section>
+
+    {% endfor %}
+
+</section>
+
+<a class="olderPost" href="/archive">
+    View All Articles
+    </a>
+
+    <img src="/images/rect13364.jpg"
+         alt=""
+         class="creationPic">
+
+{% endblock content %}
